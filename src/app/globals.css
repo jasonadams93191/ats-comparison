@@ -1,26 +1,41 @@
 @import "tailwindcss";
 
+@theme {
+  --color-asymbl: #7C3AED;
+  --color-asymbl-light: #F5F3FF;
+  --color-asymbl-border: #DDD6FE;
+  --color-deel: #EA580C;
+  --color-deel-light: #FFF7ED;
+  --color-deel-border: #FED7AA;
+  --color-sf: #0070D2;
+  --color-sf-light: #EFF6FF;
+  --color-sf-border: #BFDBFE;
+  --color-pain: #DC2626;
+  --color-pain-light: #FEF2F2;
+  --color-pain-border: #FECACA;
+  --color-success: #059669;
+  --color-success-light: #F0FDF4;
+  --color-success-border: #BBF7D0;
+  --color-success-dark: #166534;
+  --color-charcoal: #1C1917;
+  --color-warn: #D97706;
+  --color-warn-light: #FFFBEB;
+  --color-warn-border: #FDE68A;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #FAFAF8;
+  --foreground: #1C1917;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+code, .mono {
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
 }
