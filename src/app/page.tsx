@@ -206,7 +206,7 @@ export default function Page() {
                 called &quot;Deel Talent.&quot; Think of it like a <strong>Salesforce Labs free app vs. a full ISV solution</strong> —
                 it has basic candidate stages, simple scheduling, and agency coordination, but <strong>no job board posting,
                 no resume database, no candidate search, no custom pipelines, and no staffing-specific workflows</strong>.
-                Deel even recommends pairing with a dedicated ATS (Greenhouse, Lever) for serious recruiting needs.
+                Deel maintains native integrations with Greenhouse, Ashby, Lever, and Workable — suggesting Deel Talent is designed as a complement to dedicated ATS platforms, not a replacement.
               </p>
             </div>
 
@@ -256,7 +256,7 @@ export default function Page() {
                       'No job board posting (confirmed unavailable)',
                       'No resume database or candidate search',
                       'No Salesforce integration (Zapier only)',
-                      'Deel recommends pairing with Greenhouse/Lever',
+                      'Native integrations with Greenhouse, Lever, Ashby, Workable',
                     ].map(item => (
                       <div
                         key={item}
@@ -577,7 +577,7 @@ export default function Page() {
                   </tr>
                   <tr className="bg-[#FAFAFA]">
                     <td className="py-2.5 px-4 text-[#374151]">Dedicated ATS Likely Needed</td>
-                    <td className="py-2.5 px-4 text-pain italic">Deel Talent is bare-bones — Deel recommends pairing with Greenhouse/Lever for real ATS needs</td>
+                    <td className="py-2.5 px-4 text-pain italic">Deel Talent is basic — Deel offers native integrations with Greenhouse, Lever, Ashby for full ATS needs</td>
                     <td className="py-2.5 px-4 text-right italic text-pain">+???</td>
                     <td className="py-2.5 px-4 text-right italic text-pain">+$5K–$15K</td>
                   </tr>
