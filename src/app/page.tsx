@@ -33,19 +33,23 @@ interface Feature {
 
 const features: Feature[] = [
   // Core ATS
-  { category: 'Core ATS', name: 'Applicant tracking & pipeline management', deel: 'no', asymbl: 'yes', note: 'Deel has no candidate pipeline — it\'s an HR/payroll platform' },
+  { category: 'Core ATS', name: 'Applicant tracking & pipeline management', deel: 'limited', asymbl: 'yes', note: 'Deel Talent has basic candidate stages — no custom pipelines' },
   { category: 'Core ATS', name: 'Kanban board + list view for candidates', deel: 'no', asymbl: 'yes' },
-  { category: 'Core ATS', name: 'Configurable hiring workflows per client/role', deel: 'no', asymbl: 'yes' },
-  { category: 'Core ATS', name: 'Interview scheduling & feedback collection', deel: 'no', asymbl: 'yes' },
-  { category: 'Core ATS', name: 'Job requisition management', deel: 'partial', asymbl: 'yes', note: 'Deel Talent allows requisitions but only for sourcing agencies' },
+  { category: 'Core ATS', name: 'Configurable hiring workflows per client/role', deel: 'no', asymbl: 'yes', note: 'Deel has fixed stages only' },
+  { category: 'Core ATS', name: 'Interview scheduling & feedback collection', deel: 'limited', asymbl: 'yes', note: 'Deel has basic scheduling with timezone support — no panel scheduling' },
+  { category: 'Core ATS', name: 'Job requisition management', deel: 'partial', asymbl: 'yes', note: 'Deel Talent allows requisitions but primarily for sourcing via agencies' },
   { category: 'Core ATS', name: 'Resume parsing & candidate intake', deel: 'partial', asymbl: 'yes', note: 'Deel has basic AI parsing; Asymbl uses semantic NLP' },
+  { category: 'Core ATS', name: 'Job board posting (Indeed, LinkedIn, etc.)', deel: 'no', asymbl: 'yes', note: 'Deel has NO job board posting — confirmed unavailable' },
+  { category: 'Core ATS', name: 'Resume database & search', deel: 'no', asymbl: 'yes', note: 'Deel has no searchable candidate database' },
   { category: 'Core ATS', name: 'Candidate communication (email/SMS)', deel: 'no', asymbl: 'yes' },
   { category: 'Core ATS', name: 'Branded candidate engagement campaigns', deel: 'no', asymbl: 'yes' },
   { category: 'Core ATS', name: 'Timesheet & placement management', deel: 'no', asymbl: 'yes', note: 'Asymbl Time module' },
+  { category: 'Core ATS', name: 'Background screening', deel: 'partial', asymbl: 'partial', note: 'Both support via integrations' },
+  { category: 'Core ATS', name: 'Assessment/evaluation templates', deel: 'limited', asymbl: 'yes', note: 'Deel has basic assessments; Asymbl has full scorecards' },
 
   // AI & Automation
   { category: 'AI & Automation', name: 'AI-powered semantic candidate search', deel: 'no', asymbl: 'yes', note: 'Goes beyond Boolean — NLP + interaction data' },
-  { category: 'AI & Automation', name: 'AI candidate ranking & matching', deel: 'partial', asymbl: 'yes', note: 'Deel has basic resume-to-JD matching only' },
+  { category: 'AI & Automation', name: 'AI candidate ranking & matching', deel: 'limited', asymbl: 'yes', note: 'Deel has basic resume-to-JD matching only' },
   { category: 'AI & Automation', name: 'Predictive hiring intelligence', deel: 'no', asymbl: 'yes', note: 'Time-to-hire, cultural fit, placement success forecasting' },
   { category: 'AI & Automation', name: 'Autonomous AI agents (Agentforce)', deel: 'no', asymbl: 'yes', note: 'Auto job descriptions, screening, scheduling, summaries' },
   { category: 'AI & Automation', name: 'Bias detection in hiring data', deel: 'no', asymbl: 'yes' },
@@ -198,9 +202,11 @@ export default function Page() {
             <div className="bg-pain-light border border-pain-border border-l-4 border-l-pain rounded-lg p-4">
               <p className="text-[13px] text-pain font-bold mb-1">Critical Distinction</p>
               <p className="text-[13px] text-[#374151] leading-relaxed">
-                <strong>Deel is not an ATS.</strong> It is a global HR, payroll, and Employer of Record (EOR) platform.
-                It does not provide applicant tracking, candidate pipeline management, or staffing agency workflows.
-                A staffing agency using Deel would still need a separate ATS for core recruiting operations.
+                <strong>Deel is primarily a global HR/payroll/EOR platform</strong> with a bare-bones recruiting module
+                called &quot;Deel Talent.&quot; Think of it like a <strong>Salesforce Labs free app vs. a full ISV solution</strong> —
+                it has basic candidate stages, simple scheduling, and agency coordination, but <strong>no job board posting,
+                no resume database, no candidate search, no custom pipelines, and no staffing-specific workflows</strong>.
+                Deel even recommends pairing with a dedicated ATS (Greenhouse, Lever) for serious recruiting needs.
               </p>
             </div>
 
@@ -237,19 +243,20 @@ export default function Page() {
                 {/* Deel card */}
                 <div className="bg-white border border-deel-border border-l-4 border-l-deel rounded-lg p-5">
                   <p className="mono text-[10px] uppercase tracking-[0.12em] text-deel mb-2">
-                    Deel — Standalone HR/Payroll Platform
+                    Deel — HR/Payroll Platform with Basic Recruiting
                   </p>
                   <p className="text-[15px] font-bold text-deel">{usd(deelAnnual)}/yr</p>
                   <p className="text-[11px] text-[#6B7280] mb-3">{usd(deelMonthly)}/mo flat &middot; no setup fee</p>
                   <div className="space-y-1.5">
                     {[
-                      'Global HR & payroll platform (not an ATS)',
-                      'Employer of Record (EOR) services',
-                      'Basic resume parsing',
-                      'Integrates with ATS tools (Greenhouse, Lever)',
+                      'Global HR, payroll & EOR platform (core product)',
+                      '"Deel Talent" — bare-bones recruiting module',
+                      'Basic candidate stages (not customizable)',
+                      'Basic interview scheduling & assessments',
+                      'No job board posting (confirmed unavailable)',
+                      'No resume database or candidate search',
                       'No Salesforce integration (Zapier only)',
-                      'No candidate pipeline management',
-                      'No staffing client portal',
+                      'Deel recommends pairing with Greenhouse/Lever',
                     ].map(item => (
                       <div
                         key={item}
@@ -569,10 +576,10 @@ export default function Page() {
                     <td className="py-2.5 px-4 text-right italic text-[#6B7280]">TBD</td>
                   </tr>
                   <tr className="bg-[#FAFAFA]">
-                    <td className="py-2.5 px-4 text-[#374151]">Separate ATS Required</td>
-                    <td className="py-2.5 px-4 text-pain italic">Deel is not an ATS — you&apos;d still need one</td>
+                    <td className="py-2.5 px-4 text-[#374151]">Dedicated ATS Likely Needed</td>
+                    <td className="py-2.5 px-4 text-pain italic">Deel Talent is bare-bones — Deel recommends pairing with Greenhouse/Lever for real ATS needs</td>
                     <td className="py-2.5 px-4 text-right italic text-pain">+???</td>
-                    <td className="py-2.5 px-4 text-right italic text-pain">+???</td>
+                    <td className="py-2.5 px-4 text-right italic text-pain">+$5K–$15K</td>
                   </tr>
                   <tr className="border-t-2 border-t-[#E5E7EB]">
                     <td colSpan={2} className="py-2.5 px-4 font-bold text-charcoal">Deel Total (ATS package only)</td>
